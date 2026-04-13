@@ -1,14 +1,107 @@
-<h1>Sheldon's Custom Polls App</h1>
-<p>Advance Application Design | Assignment-3</p>
-<hr>
+<style>
+    body { 
+        background-color: #FFD100; 
+        font-family: 'Arial Black', sans-serif; 
+        padding: 10px; /* Reduced padding */
+    }
+
+    /* Shrinking the Card */
+    .card { 
+        background: white; 
+        border: 2px solid #000; /* Thinner border */
+        padding: 10px 15px;      /* Half padding */
+        box-shadow: 5px 5px 0px #000; /* Smaller shadow */
+        margin: 0 auto 10px auto; /* Centered and tighter spacing */
+        text-decoration: none; 
+        display: block; 
+        color: black;
+        max-width: 400px; /* Prevents the card from being too wide */
+    }
+
+    .card h2 {
+        font-size: 1.1rem; /* Shrunk from default 2rem+ */
+        margin: 5px 0;
+    }
+
+    .card:hover { 
+        transform: translate(-2px, -2px); 
+        box-shadow: 7px 7px 0px #000; 
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Smaller main title */
+        margin-bottom: 20px;
+    }
+
+    /* Shrinking the Footer */
+    .poll-footer-main {
+        margin-top: 30px;
+        background: #000;
+        color: #fff;
+        padding: 1rem; /* Reduced from 2rem */
+        border-top: 4px solid #FF4DFF;
+    }
+
+ 
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack the name and the info vertically */
+    justify-content: center; /* Center vertically if there is extra space */
+    align-items: center;    /* Center items horizontally */
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 5px;               /* Closer spacing between lines */
+}
+
+.footer-left p {
+    font-family: sans-serif;
+    font-size: 0.7rem; 
+    margin: 2px 0;
+    color: #ccc;
+    text-align: center !important; /* Forces the text itself to center */
+}
+
+/* If you still have the footer-links div, center those too */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+    .panic-btn {
+        background: #FF3E3E;
+        padding: 5px 10px; /* Slimmer buttons */
+        border: 2px solid #fff;
+        font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+        .footer-content { flex-direction: column; text-align: center; }
+        .footer-links a { display: inline-block; margin: 5px; }
+    }
+</style>
+
+<div><h1 style="text-align: center;">POLLS</h1></div>
 
 {% if latest_question_list %}
-<ul>
-  {% for question in latest_question_list %}
-  <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-  {% endfor %}
-</ul>
+    {% for question in latest_question_list %}
+        <a href="{% url 'polls:detail' question.id %}" class="card">
+            <h2>{{ question.question_text }}</h2>
+        </a>
+    {% endfor %}
 {% else %}
-<p>No polls available.</p>
+   <p style="text-align:center;">No polls available.</p>
 {% endif %}
 
+
+
+<footer class="poll-footer-main">
+    <div class="footer-content">
+        <div class="footer-left">
+            <p><strong>SHELDON THOMAS</strong></p><br>
+            <p>COMP314   |   ADVANCE APPLICATION DESIGN   |   ASSIGNMENT 3</p>
+        </div>
+       
+
+    </div>
+</footer>
