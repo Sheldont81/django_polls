@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         EC2_USER = "ubuntu"
-        EC2_HOST = "3.16.215.49"
+        EC2_HOST = "18.191.196.89"
         EC2_KEY = credentials('ec2-ssh-private-key')
         PROJECT_DIR = "/home/ubuntu/django_polls"
     }
